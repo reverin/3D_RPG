@@ -25,8 +25,9 @@ public class Mover : MonoBehaviour
         RaycastHit hit;
         bool hasHit = Physics.Raycast(ray, out hit);
         if (hasHit)
-        {
-            //   GetComponent<NavMeshAgent>().destination = hit.point;
+        { 
+            //TODO look at adding as a reference instead)
+            GetComponent<NavMeshAgent>().destination = hit.point;
         }
     }
 
@@ -37,6 +38,7 @@ public class Mover : MonoBehaviour
         Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
         Vector3 localVelocity = transform.InverseTransformDirection(velocity);
         float speed = localVelocity.z;
+        //TODO look at adding as a reference instead
         GetComponent<Animator>().SetFloat("forwardSpeed", speed);
     }
 }
